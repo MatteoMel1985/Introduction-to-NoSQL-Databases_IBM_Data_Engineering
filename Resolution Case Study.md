@@ -77,3 +77,7 @@ mongoimport \
   --host 172.21.58.14 \
   --port 27017
 ```
+Take a screenshot of the output and name it `Task 1.png`. 
+
+![Task 1](https://github.com/MatteoMel1985/Introduction-to-NoSQL-Databases_IBM_Data_Engineering/blob/main/Tasks/Task%201.png?raw=true)
+
