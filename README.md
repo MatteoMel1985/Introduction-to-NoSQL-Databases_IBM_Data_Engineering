@@ -6,7 +6,7 @@ You are a data engineer at a data analytics consulting company. Your company pri
 
 # ***Exercise 1: Working with a MongoDB database***  
 
-## Download sample data file
+## ***Download sample data file***
 
 Use the following command to download the data file in your Cloud IDE project directory.  
 
@@ -14,7 +14,7 @@ Use the following command to download the data file in your Cloud IDE project di
 curl -O https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMSkillsNetwork-DB0151EN-edX/labs/FinalProject/movies.json
 ```
 
-## A sample movie document  
+## ***A sample movie document***  
 
 ```JSON
 {
@@ -32,4 +32,35 @@ curl -O https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMSk
   Metascore: 78
 }
 ```
+
+## ***Task 1: Import movies.json into mongodb server into a database named entertainment and a collection named movies.***  
+
+Now import the data from the `movies.json` file into MongoDB and verify that it is stored in the entertainment database under the movies collection.
+
+Take a screenshot of the command you used and its output.  
+
+## ***Task 2: Write a mongodb query to find the year in which most number of movies were released***  
+
+Write and execute an aggregation query to count movies by release year, sort the results in descending order, and return the year with the highest count.  
+
+<details>
+  <summary>Click here for Hint</summary>
+
+The `$group` stage can be used to group documents by a certain field. You can calculate the count of movies within the group using the $sum aggregation operator.
+Your query should:  
+
+  * Group movies by their release year.
+  * Calculate the total count of movies for each year.
+
+```JSON
+db.movies.aggregate([
+    {
+        "$group": {
+            "_id": "$FIELD_TO_GROUP_ON",
+            "calculatedField": { "$group_operator": 1 }
+        }
+    }
+])
+```
+</details>  
 
