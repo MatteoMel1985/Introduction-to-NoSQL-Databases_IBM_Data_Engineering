@@ -114,3 +114,6 @@ db.bigdata.aggregate([
 ])
 ```
 
+Take a screenshot of the query and its result and name it `Task 2.png`.  
+
+![Task 2](https://github.com/MatteoMel1985/Introduction-to-NoSQL-Databases_IBM_Data_Engineering/blob/main/Tasks/Task%202.PNG?raw=true)
