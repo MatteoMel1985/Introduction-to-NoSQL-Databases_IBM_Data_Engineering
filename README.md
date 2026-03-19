@@ -64,3 +64,27 @@ db.movies.aggregate([
 ```
 </details>  
 
+## ***Task 3: Write a mongodb query to find the count of movies released after the year 1999***  
+
+Write and execute the query and verify that the output shows 99 movies released after 1999.  
+
+## ***Task 4: Write a query to find out the average votes for movies released in 2007***  
+
+Write and execute the query and verify that the output shows an average vote count of 192.5 for movies released in 2007.  
+
+<details>
+  <summary>Click here for Hint</summary>
+  
+use the `$match` operator to filter for movies released in 2007. And `$group` with `$avg`operator to find average votes.
+
+```JSON
+db.books.aggregate([
+	{ $match : "filter criteria" },
+	{ $avg: { _id: "$field", averageVotes: "syntax for $avg" } }
+])
+```  
+</details>  
+
+## ***Task 5: Export the fields `_id`, `title`, `year`, `rating` and `Director` from the `movies` collection into a file named `partial_data.csv`***    
+
+Take a screenshot of the command you used and its output.
