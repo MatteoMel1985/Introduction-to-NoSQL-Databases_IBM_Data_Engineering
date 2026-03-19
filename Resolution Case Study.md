@@ -48,4 +48,8 @@ Clicking the Start button runs a background process to configure and start your 
 
 Shortly after that, your server is ready for use. This deployment has access control enabled and Cassandra enforces authentication. So, take note of the password as you will need the password to login as a `cassandra` user. 
 
-![Cassandra User](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMSkillsNetwork-DB0151EN-edX/images/cassandra-active.png)
+![Cassandra User](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMSkillsNetwork-DB0151EN-edX/images/cassandra-active.png)  
+
+# ***Exercise 1: Working with a MongoDB database***  
+
+## ***Download sample data file***
