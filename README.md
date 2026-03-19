@@ -87,4 +87,128 @@ db.books.aggregate([
 
 ## ***Task 5: Export the fields `_id`, `title`, `year`, `rating` and `Director` from the `movies` collection into a file named `partial_data.csv`***    
 
+Take a screenshot of the command you used and its output.  
+
+# ***Exercise 2 - Working with a Cassandra database***  
+
+## ***Download sample data file***  
+
+If you haven't managed to successfully export data into `partial_data.csv` file, then download the data file lready created for you with the following command.  
+
+```bash
+curl -O https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMSkillsNetwork-DB0151EN-edX/labs/FinalProject/partial_data.csv
+```
+
+## ***Task 6 - Create a keyspace named `entertainment`***  
+
+Take a screenshot of the command you used and its output.  
+
+<details>
+  <summary>Click here for Hint</summary>
+  
+use the `CREATE KEYSPACE` command
+
+```SQL
+CREATE KEYSPACE keyspace_name
+WITH replication replication_details
+```
+
+</details>  
+
+Once created, use the `describe` command and use the output for assessment.  
+
+## ***Task 7 - Import `partial_data.csv` into cassandra server into a keyspace named `entertainment` and a table named `movies`***  
+
+While creating the table movies configure all of the columns as text columns including the id column. 
+
+* _id
+* title
+* year
+* rating
+* director
+
+<details>
+  <summary>Click here for Hint</summary>
+  
+use the `CREATE TABLE` command
+
+```SQL
+CREATE TABLE table_name(
+    field_name text PRIMARY KEY,
+    second_field_name text
+);
+```
+
+</details>  
+
+
 Take a screenshot of the command you used and its output.
+
+And now import the data present in `partial_data.csv`.
+
+
+<details>
+  <summary>Click here for Hint</summary>
+  
+use the `COPY` command 
+
+```SQL
+COPY keyspace.table_name(columns) FROM 'file_path' WITH DELIMITER=',' AND HEADER=TRUE;
+```
+
+</details>  
+
+## ***Task 8 - Write a cql query to count the number of rows in the `movies` table***  
+
+Write and execute the query and verify that the output displays the total number of rows in the movies table.  
+
+
+<details>
+  <summary>Click here for Hint</summary>
+  
+use the `SELECT COUNT(*)` command 
+
+```SQL
+SELECT COUNT(*) FROM table_name;
+```
+
+</details>  
+
+
+## ***Task 9 - Create an index for the `rating` column in the `movies` table using cql***  
+
+Take a screenshot of the command you used and its output.
+
+
+<details>
+  <summary>Click here for Hint</summary>
+  
+use the `CREATE INDEX` command 
+
+```SQL
+CREATE INDEX IF NOT EXISTS index_name
+ON keyspace.table_name ( column_name )  
+```
+
+</details>  
+
+And then run the `describe` on `movies` that shows `CREATE INDEX` listed in the output. 
+
+## ***Task 10 - Write a cql query to count the number of movies that are rated 'G'.***  
+
+Write and execute the query and verify that the output displays the total number of movies with a 'G' rating.  
+
+
+<details>
+  <summary>Click here for Hint</summary>
+  
+use the `SELECT COUNT(*) FROM table_name WHERE criteria` command 
+
+```SQL
+SELECT COUNT(*) FROM table_name WHERE some_field='some value';  
+```
+
+</details>  
+
+# Author
+# ***[Matteo Meloni](https://www.linkedin.com/in/matteo-meloni-40a357154/)***
