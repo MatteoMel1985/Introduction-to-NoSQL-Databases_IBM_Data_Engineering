@@ -81,3 +81,36 @@ Take a screenshot of the output and name it `Task 1.png`.
 
 ![Task 1](https://github.com/MatteoMel1985/Introduction-to-NoSQL-Databases_IBM_Data_Engineering/blob/main/Tasks/Task%201.png?raw=true)
 
+## ***Task 2***  
+
+In the test, to write a MongoDB query to find the year in which most number of movies were released, you are suggested to use the `group` stage. However, before to do so, we must enter into `mongosh`. To do so, run the `MONGO_COMMAND` that you find in `Connection Information` from the terminal (do not use mine, ensure that the string is the one provided within your MongoDB). 
+
+```bash
+mongosh "mongodb://root:insert_your_password_here@172.21.58.14:27017/?authSource=admin"
+```
+
+Once inside, you must select the database `training`; hence, launch the following command.  
+
+```bash
+use training
+```
+
+Finally, we can run our aggregation query. 
+
+```javascript
+db.bigdata.aggregate([
+  {
+    $group: {
+      _id: "$year",
+      count: { $sum: 1 }
+    }
+  },
+  {
+    $sort: { count: -1 }
+  },
+  {
+    $limit: 1
+  }
+])
+```
+
