@@ -22,11 +22,11 @@ Soon, your server is ready for use. This deployment has access control enabled a
 
 You can now open a new terminal window.  
 
-[Terminal](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMSkillsNetwork-DB0151EN-edX/images/new-terminal.png)  
+![Terminal](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMSkillsNetwork-DB0151EN-edX/images/new-terminal.png)  
 
 The new terminal window opens at the bottom of the screen as seen in the following image.  
 
-[Example](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMSkillsNetwork-DB0151EN-edX/images/terminal-launched.png)  
+![Example](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMSkillsNetwork-DB0151EN-edX/images/terminal-launched.png)  
 
 <h1 align="center">Setting up Cassandra in the lab environment</h1>  
 
