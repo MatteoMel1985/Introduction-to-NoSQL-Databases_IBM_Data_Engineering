@@ -52,7 +52,7 @@ Your query should:
   * Group movies by their release year.
   * Calculate the total count of movies for each year.
 
-```JSON
+```javascript
 db.movies.aggregate([
     {
         "$group": {
@@ -77,7 +77,7 @@ Write and execute the query and verify that the output shows an average vote cou
   
 use the `$match` operator to filter for movies released in 2007. And `$group` with `$avg`operator to find average votes.
 
-```JSON
+```javascript
 db.books.aggregate([
 	{ $match : "filter criteria" },
 	{ $avg: { _id: "$field", averageVotes: "syntax for $avg" } }
