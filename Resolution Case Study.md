@@ -18,7 +18,7 @@ Clicking the start button runs a background process to configure and start your 
 
 Soon, your server is ready for use. This deployment has access control enabled and MongoDB enforces authentication. So, take note of the password. You will need this password to login as `root` user.  
 
-![Password](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMSkillsNetwork-DB0151EN-edX/images/new-terminal.png)  
+![Password](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMSkillsNetwork-DB0151EN-edX/images/mongodb-active.png)  
 
 You can now open a new terminal window.  
 
@@ -50,6 +50,30 @@ Shortly after that, your server is ready for use. This deployment has access con
 
 ![Cassandra User](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMSkillsNetwork-DB0151EN-edX/images/cassandra-active.png)  
 
-# ***Exercise 1: Working with a MongoDB database***  
+<h1 align="center">Exercise 1: Working with a MongoDB database</h1>  
 
 ## ***Download sample data file***
+
+Download `movies.json` by running this command in the terminal.
+
+```bash
+curl -O https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBMSkillsNetwork-DB0151EN-edX/labs/FinalProject/movies.json
+```
+
+Once done, you should see it appearing in the Explorer pane on the left.  
+
+## ***Task 1***  
+
+To import `movies.json` into a MongoDB server in a database `named` entertainment and a collection named `movies`, check your password, the host, and the port, and run the following code (modify it accordingly to these parameters in your lab). 
+
+```bash
+mongoimport \
+  -u root \
+  -p 'insert_your_password_here' \
+  --authenticationDatabase admin \
+  --db training \
+  --collection bigdata \
+  --file movies.json \
+  --host 172.21.58.14 \
+  --port 27017
+```
