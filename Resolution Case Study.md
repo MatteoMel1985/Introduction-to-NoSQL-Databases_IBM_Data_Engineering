@@ -116,4 +116,49 @@ db.bigdata.aggregate([
 
 Take a screenshot of the query and its result and name it `Task 2.png`.  
 
-![Task 2](https://github.com/MatteoMel1985/Introduction-to-NoSQL-Databases_IBM_Data_Engineering/blob/main/Tasks/Task%202.PNG?raw=true)
+![Task 2](https://github.com/MatteoMel1985/Introduction-to-NoSQL-Databases_IBM_Data_Engineering/blob/main/Tasks/Task%202.PNG?raw=true)  
+
+## ***Task 3***  
+
+Now we are requested to write a query to find the number of films released after the year 1999. To do so, write the following query.  
+
+```javascript
+db.bigdata.aggregate([
+  {
+    $match: {
+      year: { $gt: 1999 }
+    }
+  },
+  {
+    $count: "movies_after_1999"
+  }
+])
+```
+
+Take a screenshot of the output and save it as `Task 3.png`.  
+
+![Task 3](https://github.com/MatteoMel1985/Introduction-to-NoSQL-Databases_IBM_Data_Engineering/blob/main/Tasks/Task%203.PNG?raw=true)  
+
+## ***Task 4***  
+
+Continuing our study, we are now tasked with writing a query that finds out the average votes for movies released in 2007. The integrated hint suggests that we use the `$match` operator to filter for films released in 2007 and `$group` with `$avg` operator to find average votes. Hence, the following command. 
+
+```javascript
+db.bigdata.aggregate([
+  {
+    $match: { year: 2007 }
+  },
+  {
+    $group: {
+      _id: null,
+      averageVotes: { $avg: "$Votes" }
+    }
+  }
+])
+```
+
+Take a screenshot of the output in the terminal and save it as `Task 4.png`.  
+
+![Task 4](https://github.com/MatteoMel1985/Introduction-to-NoSQL-Databases_IBM_Data_Engineering/blob/main/Tasks/Task%204.png?raw=true)  
+
+## ***Task 4***  
