@@ -64,7 +64,7 @@ Once done, you should see it appearing in the Explorer pane on the left.
 
 ## ***Task 1***  
 
-To import `movies.json` into a MongoDB server in a database `named` entertainment and a collection named `movies`, check your password, the host, and the port, and run the following code (modify it accordingly to these parameters in your lab). 
+To import `movies.json` into a MongoDB server in a database named `entertainment` and a collection named `movies`, check your password, the host, and the port, and run the following code (modify it accordingly to these parameters in your lab). 
 
 ```bash
 mongoimport \
@@ -161,4 +161,30 @@ Take a screenshot of the output in the terminal and save it as `Task 4.png`.
 
 ![Task 4](https://github.com/MatteoMel1985/Introduction-to-NoSQL-Databases_IBM_Data_Engineering/blob/main/Tasks/Task%204.png?raw=true)  
 
-## ***Task 4***  
+## ***Task 5***  
+
+Finally, the last task with `MongoDB`. We must export the fields `_id`, `title`, `year`, `rating` and `Director` from the `movies` collection into a file named `partial_data.csv`.  
+
+To do so we must exit `MongoDB` CLI, simply by typing the command  
+
+```bash
+exit
+```
+
+From now on, what we do is very similar to `Task 1`. as we will use the same URL from the `Connection Information`, but with the command `mongoexport`.  
+
+```bash
+mongoexport \
+  --uri="mongodb://root:insert_your_password_here@172.21.58.14:27017/training?authSource=admin" \
+  --collection bigdata \
+  --type=csv \
+  --fields _id,title,year,rating,Director \
+  --out partial_data.csv
+```
+
+Finally, take a screenshot of the output and save it as `Task 5.png`.  
+
+![Task 5](https://github.com/MatteoMel1985/Introduction-to-NoSQL-Databases_IBM_Data_Engineering/blob/main/Tasks/Task%205.png?raw=true)  
+
+<h1 align="center">Exercise 2 - Working with a Cassandra database</h1>  
+
