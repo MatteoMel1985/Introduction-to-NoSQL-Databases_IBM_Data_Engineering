@@ -214,7 +214,7 @@ WITH replication = {
 };
 ```
 
-To verify if the keyspace was correctly created, run the command below.  
+To verify if the keyspace was correctly created, run the command below. You should see `entertainment` in the output.
 
 ```SQL
 DESCRIBE KEYSPACES;
@@ -225,3 +225,69 @@ Take a screenshot of both outputs and save it as `Task 6.png`.
 ![Task 6](https://github.com/MatteoMel1985/Introduction-to-NoSQL-Databases_IBM_Data_Engineering/blob/main/Tasks/Task%206.png?raw=true)  
 
 ## ***Task 7***  
+
+Before importing `partial_data.csv`, we must first create the table `movies` in the same `entertainment` keyspace, including the following attributes: 
+
+* _id
+* title
+* year
+* rating
+* director
+
+To do so, we can run the following command.  
+
+```SQL
+CREATE TABLE movies ("_id" text PRIMARY KEY, title text, year text, rating text, director text);
+```
+
+Now that we have the table, and `partial_data.csv` is saved in the path `/home/project/partial_data.csv`, we can simply import it by using the `COPY` command.  
+
+```SQL
+COPY entertainment.movies ("_id", title, year, rating, director) FROM '/home/project/partial_data.csv' WITH DELIMITER=',' AND HEADER=TRUE;
+```
+
+Take a screenshot of its output, and save it as `Task 7.png`.  
+
+![Task 7](https://github.com/MatteoMel1985/Introduction-to-NoSQL-Databases_IBM_Data_Engineering/blob/main/Tasks/Task%207.png?raw=true)  
+
+## ***Task 8***  
+
+Task 8 asks us to write a CQL query to count the number of rows in the movies table. The following SQL script will perfectly do the job.  
+
+```SQL
+SELECT COUNT(*) FROM entertainment.movies;
+```
+
+Take a screenshot of its output and save it as `Task 8.png`.  
+
+![Task 8](https://github.com/MatteoMel1985/Introduction-to-NoSQL-Databases_IBM_Data_Engineering/blob/main/Tasks/Task%208.png?raw=true)  
+
+## ***Task 9***  
+
+Creating an index for the `rating` column in the `movies` table using CQL does not different from SQL; hence, the following command will perfectly work.  
+
+```SQL
+CREATE INDEX rating_index ON entertainment.movies (rating);
+```
+
+To verify it, run 
+
+```SQL
+DESCRIBE TABLE entertainment.movies;
+```
+
+And take a screenshot of both outputs, saving it as `Task 9.png`.  
+
+![Task 9](https://github.com/MatteoMel1985/Introduction-to-NoSQL-Databases_IBM_Data_Engineering/blob/main/Tasks/Task%209.png?raw=true)  
+
+## ***Task 10***  
+
+As we reached the end, to count the number of movies that are rated 'G', we can write the following query.  
+
+```SQL
+SELECT COUNT(*) FROM entertainment.movies WHERE rating = 'G';
+```
+
+And take a screenshot of its output, saving it as `Task 10.png`.  
+
+![Task 10](https://github.com/MatteoMel1985/Introduction-to-NoSQL-Databases_IBM_Data_Engineering/blob/main/Tasks/Task%2010.png?raw=true)
