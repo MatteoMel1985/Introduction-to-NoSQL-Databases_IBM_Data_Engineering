@@ -188,3 +188,40 @@ Finally, take a screenshot of the output and save it as `Task 5.png`.
 
 <h1 align="center">Exercise 2 - Working with a Cassandra database</h1>  
 
+## ***Task 6***  
+
+To create a keyspace named `entertainment`, we must for connect with Cassandra via our terminal. To do so, we can simply copy and paste the `Cassandra CLI Command` from the `Connection Information` of Cassandra, and run it (ensure to insert your own password):
+
+```bash
+cqlsh 172.21.146.81 9042 --username root --password insert_your_password_here
+```
+
+The expected output should be similar to the one below.
+
+```bash
+Connected to Test Cluster at 172.21.146.81:9042.
+[cqlsh 6.x | Cassandra 3.x | CQL spec 3.x]
+root@cqlsh>
+```
+
+Finally, we can proceed to create the keyspace by running the following command.  
+
+```SQL
+CREATE KEYSPACE entertainment
+WITH replication = {
+  'class': 'SimpleStrategy',
+  'replication_factor': 1
+};
+```
+
+To verify if the keyspace was correctly created, run the command below.  
+
+```SQL
+DESCRIBE KEYSPACES;
+```
+
+Take a screenshot of both outputs and save it as `Task 6.png`.  
+
+![Task 6](https://github.com/MatteoMel1985/Introduction-to-NoSQL-Databases_IBM_Data_Engineering/blob/main/Tasks/Task%206.png?raw=true)  
+
+## ***Task 7***  
